@@ -1,0 +1,56 @@
+@font-face {
+  font-family: caviar;
+  src: url(./assets/font/CaviarDreams.ttf);
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+:root {
+  font-family: caviar, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@layer components {
+  .card {
+    background-color: rgb(238 242 255);
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+  }
+
+}
+
+@layer base {
+  .textlg {
+    @apply text-body-h2;
+    line-height: 1;
+  }
+  .textvlg {
+    @apply text-body-lg;
+    line-height: 1;
+  }
+
+  @screen lg {
+    .textlg {
+      @apply text-body-h2;
+      line-height: 1;
+    }
+    .textvlg {
+      @apply text-body-h;
+      line-height: 1;
+    }
+  }
+}
+
