@@ -764,10 +764,10 @@ vue-router@4:
   dependencies:
     "@vue/devtools-api" "^6.1.4"
 
-vue3-carousel@^0.1.46:
-  version "0.1.46"
-  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.1.46.tgz#173ede857f7e6321f2acd7cb4de384436c690b33"
-  integrity sha512-bBZRpt5vuaS3SYkyt3pF5N+VWTKrDlYeNnLKKwePcrGu77AKqZjofFR113tZi4aFF7rblvk8WqFdBWTNX+yZcg==
+vue3-carousel@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.2.9.tgz#cecb02c34f987f959dae9c056b1377326236ddcf"
+  integrity sha512-JSU3rjWNfMq6uLjO7mD0/qQL7EsD0qyGUhSw/1F9ir7ObhdcJdRxbiAGIx+iyxR3v0Zoec5JrQdxSmn4ItKVrw==
 
 vue@^3.2.37:
   version "3.2.38"

@@ -13,7 +13,7 @@
   font-weight: 400;
 
   color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: #EEF2FF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,25 +32,8 @@
 
 }
 
-@layer base {
-  .textlg {
-    @apply text-body-h2;
-    line-height: 1;
-  }
-  .textvlg {
-    @apply text-body-lg;
-    line-height: 1;
-  }
-
-  @screen lg {
-    .textlg {
-      @apply text-body-h2;
-      line-height: 1;
-    }
-    .textvlg {
-      @apply text-body-h;
-      line-height: 1;
-    }
-  }
+body{
+  max-width: 100%;
+  width: 100vw;
 }
 
