@@ -1,13 +1,16 @@
 <template>
-  <div class="min-h-screen h-screen text-cli-primary-text min-w-[500px] max-h-full">
+  <div class="bg-cli-primary-background w-full">
+
+
+  <div class="min-h-screen h-screen text-cli-primary-text  max-h-full">
     <NavigationBar/>
     <Opening/>
   </div>
-  <div class="text-cli-primary-text min-w-[500px]">
+  <div class="text-cli-primary-text">
     <Images/>
     <Contact/>
   </div>
-
+  </div>
 </template>
 <script>
 import NavigationBar from "./components/NavigationBar.vue";
