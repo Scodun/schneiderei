@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-16 mt-32">
+  <div class="mb-16 mt-32" id="images">
     <h2 class="text-5xl header-line "><span class="text-line">Galerie</span></h2>
   </div>
   <carousel :items-to-show="3" class="select-none">
@@ -123,7 +123,7 @@ export default {
 }
 
 .text-line{
-  background:#EEF2FF;
+  background: #fffbff;
   padding:0 10px;
 }
 

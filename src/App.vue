@@ -1,14 +1,12 @@
 <template>
   <div class="bg-cli-primary-background w-full">
-
-
-  <div class="min-h-screen h-screen text-cli-primary-text  max-h-full">
+  <div class="min-h-screen sm:h-screen text-cli-primary-text">
     <NavigationBar/>
-    <Opening/>
+    <Opening id="home"/>
   </div>
   <div class="text-cli-primary-text">
-    <Images/>
-    <Contact/>
+    <Images />
+    <Contact id="contact"/>
   </div>
   </div>
 </template>

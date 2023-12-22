@@ -2,6 +2,11 @@
   font-family: caviar;
   src: url(./assets/font/CaviarDreams.ttf);
 }
+@font-face {
+  font-family: caviar;
+  src: url(./assets/font/CaviarDreams_Bold.ttf);
+  font-weight: bold;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
