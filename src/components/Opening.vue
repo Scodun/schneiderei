@@ -3,8 +3,8 @@
     <div class="parallax-container  border-cli-primary"></div>
     <div class="h-0.5 bg-cli-primary w-full"/>
       <div class="p-16 flex-shrink justify-start z-20 mt-2 ">
-        <h1 class="sm-max:text-4xl text-6xl w-full">Schneiderei & Design </h1>
-        <h2 class="sm-max:text-3xl text-4xl">Gabriele Burgstaller</h2>
+        <h1 class="max-lg:text-4xl text-6xl w-full">Schneiderei & Design </h1>
+        <h2 class="max-lg:text-3xl text-4xl">Gabriele Burgstaller</h2>
 
         <div class="flex flex-row mt-8 justify-center align-middle items-center flex-wrap">
           <div class="mt-8 flex items-center pr-16 justify-center h-full w-[45%]">
@@ -34,8 +34,8 @@ Ich freue mich auf Ihren Besuch.    Ihre Gabriele Burgstaller
               </div>
             </div>
             <div class=" self-end -ml-6 -mb-18">
-              <img class="h-[8rem] sm-max:h-[6rem] min-w-fit border-4" src="/profil.webp">
-              <img class="h-[5rem] sm-max:h-[4rem] min-w-fit border-2 rounded-full border-cli-primary-header -ml-8 -mt-[3rem]" src="/meisterbetrieb.webp">
+              <img class="h-[8rem] max-lg:h-[6rem] min-w-fit border-4" src="/profil.webp">
+              <img class="h-[5rem] max-lg:h-[4rem] min-w-fit border-2 rounded-full border-cli-primary-header -ml-8 -mt-[3rem]" src="/meisterbetrieb.webp">
             </div>
           </div>
           <div class="card bg-cli-primary-light m-8 w-[35%] p-4 flex-shrink">

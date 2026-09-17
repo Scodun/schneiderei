@@ -1,3 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-caviar: caviar, sans-serif;
+
+  --color-cli-primary: #8081ba;
+  --color-cli-primary-dark: #1B1725;
+  --color-cli-primary-lighter: #534B62;
+  --color-cli-primary-light: #FFFDFD;
+  --color-cli-primary-header: #d52d06;
+  --color-cli-primary-background: #fffbff;
+  --color-cli-primary-text: #080813;
+  --color-cli-primary-text-light: #E6E3DA;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --font-size-sm: 0.8rem;
+  --font-size-sm--line-height: 1;
+  --font-size-base: 1rem;
+  --font-size-base--line-height: 1;
+  --font-size-xl: 1.25rem;
+  --font-size-xl--line-height: 1;
+  --font-size-2xl: 1.563rem;
+  --font-size-2xl--line-height: 1;
+  --font-size-3xl: 1.953rem;
+  --font-size-3xl--line-height: 1;
+  --font-size-4xl: 2.441rem;
+  --font-size-4xl--line-height: 1;
+  --font-size-5xl: 4rem;
+  --font-size-5xl--line-height: 1;
+  --font-size-6xl: 5rem;
+  --font-size-6xl--line-height: 1;
+}
+
 @font-face {
   font-family: caviar;
   src: url(./assets/font/CaviarDreams.ttf);
@@ -7,12 +45,9 @@
   src: url(./assets/font/CaviarDreams_Bold.ttf);
   font-weight: bold;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind screens;
+
 :root {
-  font-family: caviar, sans-serif;
+  font-family: var(--font-caviar);
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -29,10 +64,9 @@
 
 @layer components {
   .card {
-    background-color: rgb(238 242 255);
-    border-radius: theme('borderRadius.lg');
-    padding: theme('spacing.6');
-    box-shadow: theme('boxShadow.xl');
+    background-color: var(--color-indigo-50);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-xl);
   }
-
 }
