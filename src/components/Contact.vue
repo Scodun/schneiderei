@@ -1,51 +1,63 @@
 <template>
-  <div class="mb-16 mt-32" id="images">
-    <h2 class="text-5xl header-line "><span class="text-line">Contact</span></h2>
-    <div class="flex justify-center mt-16">
-      <div class="flex-row w-4 justify-around hidden sm:flex">
-        <div>
-          <div class="w-1 h-[8rem] mt-4 bg-cli-primary"></div>
-          <div class="w-1 h-[1rem] mt-4 bg-cli-primary"></div>
+  <section class="py-20">
+    <h2 class="section-title">Kontakt</h2>
+    
+    <div class="mt-12 max-w-4xl mx-auto fade-in">
+      <div class="card overflow-hidden !p-0 flex flex-col md:flex-row shadow-2xl">
+        <div class="md:w-1/2 h-80 md:h-auto">
+          <img class="w-full h-full object-cover" src="../assets/me.webp" alt="Gabriele Burgstaller">
         </div>
-        <div>
-          <div class="w-1 h-[12rem] mt-4 bg-cli-primary"></div>
-          <div class="w-1 h-[1rem] mt-4 bg-cli-primary"></div>
-        </div>
-
-      </div>
-      <div class="card p-2 rounded bg-white flex flex-row rounded-t-3xl">
-        <div class="h-60 ">
-          <img  class="h-60 rounded-3xl" src="../assets/me.jpg">
-        </div>
-        <div class="h-60 ml-4 p-16">
-          <div class="flex justify-center mb-8">
-            <span class="text-2xl font-bold text-gray-800">Wie Sie mich erreichen können</span>
+        
+        <div class="md:w-1/2 p-10 flex flex-col justify-center space-y-8 bg-white">
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold tracking-tighter uppercase">Wie Sie mich erreichen können</h3>
+            <p class="text-text-muted">Ich freue mich auf Ihre Anfrage und berate Sie gerne persönlich.</p>
           </div>
-          <p class="text-xl text-gray-800">Tel: +43 660 4019979</p>
-          <p class="text-xl text-gray-800 hidden">E-Mail: test@gmail.com</p>
+          
+          <div class="space-y-6">
+            <a href="tel:+436604019979" class="group flex items-center gap-4 hover:text-primary transition-colors duration-300">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <Phone class="w-5 h-5" />
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-text-muted font-bold">Telefon</p>
+                <p class="text-lg font-bold">+43 660 4019979</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <MapPin class="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-text-muted font-bold">Standort</p>
+                <p class="text-lg font-bold">Lind, Villach</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Clock class="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-text-muted font-bold">Öffnungszeiten</p>
+                <p class="text-lg font-bold">Mo - Fr nach tel. Voranmeldung</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pt-4">
+            <a href="tel:+436604019979" class="btn inline-block text-center w-full md:w-auto">Jetzt Anrufen</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
+  </section>
 </template>
 
-<script>
-export default {
-  name: "Contact"
-}
+<script setup>
+import { Phone, MapPin, Clock } from '@lucide/vue';
 </script>
 
 <style scoped>
-.header-line{
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #000;
-  line-height: 0.1em;
-  margin: 10px 0 20px;
-}
-.text-line{
-  background: #fffbff;
-  padding:0 10px;
-}
 </style>

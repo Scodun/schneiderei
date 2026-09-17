@@ -1,24 +1,22 @@
 <template>
-  <div class="bg-cli-primary-background w-full">
-  <div class="min-h-screen sm:h-screen text-cli-primary-text">
-    <NavigationBar/>
-    <Opening id="home"/>
-  </div>
-  <div class="text-cli-primary-text">
-    <Images />
-    <Contact id="contact"/>
-  </div>
+  <div class="bg-bg w-full">
+    <div class="min-h-screen">
+      <NavigationBar/>
+      <Opening id="home"/>
+    </div>
+    <SketchSection id="design" />
+    <div class="container mx-auto px-4 py-16">
+      <Highlights id="highlights" />
+      <Contact id="contact"/>
+    </div>
   </div>
 </template>
-<script>
+<script setup>
 import NavigationBar from "./components/NavigationBar.vue";
 import Opening from "./components/Opening.vue";
-import Images from "./components/Images.vue";
+import SketchSection from "./components/SketchSection.vue";
+import Highlights from "./components/Highlights.vue";
 import Contact from "./components/Contact.vue";
-export default {
-  name: "App",
-  components: {Contact, Images, Opening, NavigationBar}
-}
 </script>
 <style scoped>
 

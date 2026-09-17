@@ -3,37 +3,19 @@
 @theme {
   --font-caviar: caviar, sans-serif;
 
-  --color-cli-primary: #8081ba;
-  --color-cli-primary-dark: #1B1725;
-  --color-cli-primary-lighter: #534B62;
-  --color-cli-primary-light: #FFFDFD;
-  --color-cli-primary-header: #d52d06;
-  --color-cli-primary-background: #fffbff;
-  --color-cli-primary-text: #080813;
-  --color-cli-primary-text-light: #E6E3DA;
+  --color-primary: #C5A059;
+  --color-primary-dark: #A68549;
+  --color-secondary: #4A4A4A;
+  --color-bg: #FCF9F7;
+  --color-text: #1A1A1A;
+  --color-text-muted: #666666;
+  --color-accent: #8B4513;
 
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
-
-  --font-size-sm: 0.8rem;
-  --font-size-sm--line-height: 1;
-  --font-size-base: 1rem;
-  --font-size-base--line-height: 1;
-  --font-size-xl: 1.25rem;
-  --font-size-xl--line-height: 1;
-  --font-size-2xl: 1.563rem;
-  --font-size-2xl--line-height: 1;
-  --font-size-3xl: 1.953rem;
-  --font-size-3xl--line-height: 1;
-  --font-size-4xl: 2.441rem;
-  --font-size-4xl--line-height: 1;
-  --font-size-5xl: 4rem;
-  --font-size-5xl--line-height: 1;
-  --font-size-6xl: 5rem;
-  --font-size-6xl--line-height: 1;
 }
 
 @font-face {
@@ -49,24 +31,44 @@
 :root {
   font-family: var(--font-caviar);
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.6;
   font-weight: 400;
+  scroll-behavior: smooth;
 
-  color: #242424;
-  background-color: #fffbff;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  image-orientation: from-image;
 }
 
 @layer components {
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-12 relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply block w-20 h-1 bg-primary mx-auto mt-4;
+  }
+
+  .btn {
+    @apply px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-500 uppercase tracking-widest text-sm font-bold shadow-sm hover:shadow-lg active:scale-95;
+  }
+
   .card {
-    background-color: var(--color-indigo-50);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-6);
-    box-shadow: var(--shadow-xl);
+    @apply bg-white shadow-sm border border-gray-100 rounded-sm p-6;
+  }
+
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
