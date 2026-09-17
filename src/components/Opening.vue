@@ -4,8 +4,8 @@
       <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
         <div class="text-center text-white px-4 fade-in flex flex-col items-center">
           <img class="h-16 md:h-24 mb-6 drop-shadow-lg" src="../assets/meisterbetrieb.webp" alt="Meisterbetrieb">
-          <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter uppercase">Schneiderei & Design</h1>
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-light tracking-widest uppercase italic">Gabriele Burgstaller</h2>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter uppercase">Schneiderei & Design</h1>
+          <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-widest uppercase italic">Gabriele Burgstaller</h2>
         </div>
       </div>
     </div>
@@ -76,9 +76,15 @@
 <style scoped>
 .parallax-container {
   background-image: url("../assets/assorted-color-threads-in-spools-1189675-1-1980x1114.webp");
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .parallax-container {
+    background-attachment: fixed;
+  }
 }
 </style>

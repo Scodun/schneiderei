@@ -4,8 +4,8 @@
     
     <div class="mt-12 max-w-4xl mx-auto fade-in">
       <div class="card overflow-hidden !p-0 flex flex-col md:flex-row shadow-2xl">
-        <div class="md:w-1/2 h-80 md:h-auto">
-          <img class="w-full h-full object-cover" src="../assets/me.webp" alt="Gabriele Burgstaller">
+        <div class="md:w-1/2 flex items-center justify-center bg-gray-50/50 p-8 md:p-0">
+          <img class="h-48 w-48 md:h-full md:w-full object-cover object-top rounded-sm md:rounded-none border-4 border-white md:border-0 shadow-2xl md:shadow-none transition-transform duration-500 hover:scale-105" src="../assets/me.webp" alt="Gabriele Burgstaller">
         </div>
         
         <div class="md:w-1/2 p-10 flex flex-col justify-center space-y-8 bg-white">
