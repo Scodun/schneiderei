@@ -1,6 +1,6 @@
 <template>
   <div class="w-full z-50 h-14 flex flex-row justify-between items-center fixed top-0 bg-cli-primary-light shadow-lg">
-    <img class="h-12 align-middle pl-2" src="src/assets/GB.png" />
+    <img class="h-12 align-middle pl-2" src="/gb.png" />
     <div class="w-full flex justify-center">
       <div class="h-max leading-[3.5rem] align-middle font-bold">
         <a href="#home" class="hover:text-stone-700">Home</a>

@@ -1,119 +1,58 @@
 <template>
   <div class="mb-16 mt-32" id="images">
     <h2 class="text-5xl header-line "><span class="text-line">Galerie</span></h2>
-  </div>
-  <carousel :items-to-show="3" class="select-none">
-    <slide v-for="slide in images" :key="slide">
-      <div class="carousel__item">
-        <img :src="slide" :id="slide" @click="makeFullScreen(slide)"/>
+    <div class="flex flex-row justify-center w-full mt-16">
+      <div class="flex flex-wrap w-3/4 justify-evenly">
+        <div @click="showImage(item.url)" v-for="item in galleryItems" class="center-cropped m-1 cursor-pointer" :class="item.orientation?'w-44 h-64':'w-96 h-64'"
+           :style="'background-image: url('+item.lq+');'">
+        </div>
       </div>
-    </slide>
+    </div>
+  </div>
 
-    <template #addons>
-      <Pagination />
-      <Navigation />
-    </template>
-  </carousel>
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel';
+
+import {createApp} from "vue";
+import Image from "./Image.vue";
 
 export default {
   name: "Images.vue",
-  data(){
-    return {
-      images: [
-        this.requireFile("20191216_103603.jpg"),
-        this.requireFile("DSC_0625-576x1024.jpg"),
-        this.requireFile("20191216_103603.jpg"),
-        this.requireFile("DSC_0625-576x1024.jpg"),
-        this.requireFile("20191216_103603.jpg"),
-        this.requireFile("DSC_0625-576x1024.jpg"),
-        this.requireFile("20191216_103603.jpg"),
-        this.requireFile("DSC_0625-576x1024.jpg"),
-        this.requireFile("20191216_103603.jpg"),
-        this.requireFile("DSC_0625-576x1024.jpg"),
-        this.requireFile("20191216_103603.jpg"),
-        this.requireFile("DSC_0625-576x1024.jpg")
-      ]
-    }
-  },
   methods:{
-    requireFile(name){
-      return "./showroom/"+name
-    },
-    makeFullScreen(slide) {
-    var divObj = document.getElementById(slide);
-    //Use the specification method before using prefixed versions
-    if (divObj.requestFullscreen) {
-      divObj.requestFullscreen();
+    showImage(img) {
+      const modalElement = document.createElement('div')
+      let instance = createApp(Image, {
+            image: img,
+            close() {
+              instance.unmount();
+              modalElement.remove();
+            },
+          }
+      )
+      document.body.appendChild(modalElement);
+      instance.mount(modalElement)
     }
-    else if (divObj.msRequestFullscreen) {
-      divObj.msRequestFullscreen();
-    }
-    else if (divObj.mozRequestFullScreen) {
-      divObj.mozRequestFullScreen();
-    }
-    else if (divObj.webkitRequestFullscreen) {
-      divObj.webkitRequestFullscreen();
-    } else {
-      console.log("Fullscreen API is not supported");
-    }
-}
   },
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-  },
+  data: () => ({
+    galleryItems: [
+      {url: "/showroom/1.jpg", lq: "/showroom/lq/1.jpg", orientation: true},
+      {url: "/showroom/2.jpg", lq: "/showroom/lq/2.jpg", orientation: true},
+      {url: "/showroom/3.jpg", lq: "/showroom/lq/3.jpg", orientation: true},
+      {url: "/showroom/4.jpg", lq: "/showroom/lq/4.jpg", orientation: true},
+      {url: "/showroom/5.jpg", lq: "/showroom/lq/5.jpg", orientation: true},
+      {url: "/showroom/6.jpg", lq: "/showroom/lq/6.jpg", orientation: true},
+      {url: "/showroom/10.jpg", lq: "/showroom/lq/10.jpg", orientation: true},
+      {url: "/showroom/8.jpg", lq: "/showroom/lq/8.jpg", orientation: false},
+      {url: "/showroom/7.jpg", lq: "/showroom/lq/7.jpg", orientation: true},
+      {url: "/showroom/9.jpg", lq: "/showroom/lq/9.jpg", orientation: false},
+      {url: "/showroom/11.jpg", lq: "/showroom/lq/11.jpg", orientation: true},
+    ]
+  }),
 }
 </script>
 
 <style scoped>
-
-.carousel__slide {
-  padding: 5px;
-}
-
-.carousel__viewport {
-  perspective: 2000px;
-}
-
-.carousel__track {
-  transform-style: preserve-3d;
-}
-
-.carousel__slide--sliding {
-  transition: 0.5s;
-}
-
-.carousel__slide {
-  opacity: 0.9;
-  transform: rotateY(-20deg) scale(0.5);
-}
-
-.carousel__slide--active ~ .carousel__slide {
-  transform: rotateY(20deg) scale(0.6);
-}
-
-.carousel__slide--prev {
-  opacity: 1;
-  transform: rotateY(-10deg) scale(0.6);
-}
-
-.carousel__slide--next {
-  opacity: 1;
-  transform: rotateY(10deg) scale(0.6);
-}
-
-.carousel__slide--active {
-  opacity: 1;
-  transform: rotateY(0) scale(1);
-}
-
 .header-line{
   width: 100%;
   text-align: center;
@@ -121,10 +60,29 @@ export default {
   line-height: 0.1em;
   margin: 10px 0 20px;
 }
-
 .text-line{
   background: #fffbff;
   padding:0 10px;
 }
+.center-cropped {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Set the image to fill its parent and make transparent */
+.center-cropped img {
+  min-height: 100%;
+  min-width: 100%;
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+  filter: alpha(opacity=0);
+  /* modern browsers */
+  opacity: 0;
+}
+
+
 
 </style>

@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         cli: {
           primary: {
-            DEFAULT: '#f5a403',
+            DEFAULT: '#8081ba',
             dark: '#1B1725',
             lighter: '#534B62',
             light: '#FFFDFD',
