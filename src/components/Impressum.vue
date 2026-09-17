@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-white border-t border-gray-100">
+  <section class="py-20 bg-white">
     <div class="container mx-auto px-6 max-w-4xl">
       <h2 class="section-title">Impressum</h2>
       <div class="space-y-8 text-text leading-relaxed">
@@ -33,13 +33,6 @@
           <p>Gewerbeordnung: <a href="https://www.ris.bka.gv.at" target="_blank" class="text-primary hover:underline">www.ris.bka.gv.at</a></p>
         </div>
 
-        <div>
-          <h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">Online-Streitbeilegung</h3>
-          <p>Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten: 
-            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" class="text-primary hover:underline">https://ec.europa.eu/consumers/odr/</a>.
-            Sie können allfällige Beschwerde auch an die oben angegebene E-Mail-Adresse richten.
-          </p>
-        </div>
       </div>
     </div>
   </section>
