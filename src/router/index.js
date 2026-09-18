@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ImpressumView from '../views/ImpressumView.vue'
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
+import ForSaleView from '../views/ForSaleView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,6 +11,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/zu-verkaufen',
+      name: 'forsale',
+      component: ForSaleView
     },
     {
       path: '/impressum',

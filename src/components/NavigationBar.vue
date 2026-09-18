@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
       <router-link to="/" class="flex items-center gap-2 md:gap-4 shrink-0" @click="closeMenu">
         <img class="h-8 md:h-12 w-auto shrink-0" src="../assets/gb.webp" alt="Logo" />
-        <span class="hidden md:block text-lg font-bold tracking-tighter uppercase">Schneiderei & Design</span>
+        <span class="hidden lg:block text-lg font-bold tracking-tighter uppercase">Schneiderei & Design</span>
       </router-link>
 
       <!-- Desktop Navigation -->
@@ -11,6 +11,7 @@
         <router-link to="/#home" class="hover:text-primary transition-colors duration-300">Home</router-link>
         <router-link to="/#design" class="hover:text-primary transition-colors duration-300">Design</router-link>
         <router-link to="/#highlights" class="hover:text-primary transition-colors duration-300">Highlights</router-link>
+        <router-link to="/#shop" class="hover:text-primary transition-colors duration-300">Erwerbbare Einzelstücke</router-link>
         <router-link to="/#contact" class="hover:text-primary transition-colors duration-300">Kontakt</router-link>
       </div>
 
@@ -41,6 +42,7 @@
         <router-link to="/#home" @click="closeMenu" class="hover:text-primary py-2 transition-colors">Home</router-link>
         <router-link to="/#design" @click="closeMenu" class="hover:text-primary py-2 transition-colors">Design</router-link>
         <router-link to="/#highlights" @click="closeMenu" class="hover:text-primary py-2 transition-colors">Highlights</router-link>
+        <router-link to="/#shop" @click="closeMenu" class="hover:text-primary py-2 transition-colors">Erwerbbare Einzelstücke</router-link>
         <router-link to="/#contact" @click="closeMenu" class="hover:text-primary py-2 transition-colors">Kontakt</router-link>
       </div>
     </Transition>
