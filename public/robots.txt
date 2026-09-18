@@ -3,4 +3,4 @@ Allow: /
 Disallow: /impressum
 Disallow: /datenschutz
 
-Sitemap: https://www.gabriele-burgstaller.at/sitemap.xml
+Sitemap: https://www.schneiderei-design.at/sitemap.xml
