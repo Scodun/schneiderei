@@ -5,7 +5,11 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         <div v-for="item in itemsForSale" :key="item.id" class="flex flex-col space-y-6">
-          <div class="relative group aspect-[3/4] overflow-hidden bg-gray-100 shadow-md">
+          <div 
+            class="relative group aspect-[3/4] overflow-hidden bg-gray-100 shadow-md"
+            @touchstart="onTouchStart"
+            @touchend="onTouchEnd($event, item)"
+          >
             <transition name="fade" mode="out-in">
               <img 
                 :key="getCurrentIndex(item.id)"
@@ -16,16 +20,16 @@
             </transition>
 
             <!-- Small Carousel Controls -->
-            <div v-if="item.images.length > 1" class="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div v-if="item.images.length > 1" class="absolute inset-0 flex items-center justify-between px-2 xl:opacity-0 xl:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
               <button 
                 @click.stop="prevImage(item)" 
-                class="p-1 bg-white/80 hover:bg-white text-primary rounded-full shadow-sm transition-all active:scale-90"
+                class="p-1 bg-white/80 hover:bg-white text-primary rounded-full shadow-sm transition-all active:scale-90 pointer-events-auto"
               >
                 <ChevronLeft class="w-5 h-5" />
               </button>
               <button 
                 @click.stop="nextImage(item)" 
-                class="p-1 bg-white/80 hover:bg-white text-primary rounded-full shadow-sm transition-all active:scale-90"
+                class="p-1 bg-white/80 hover:bg-white text-primary rounded-full shadow-sm transition-all active:scale-90 pointer-events-auto"
               >
                 <ChevronRight class="w-5 h-5" />
               </button>
@@ -75,6 +79,24 @@ import { ChevronLeft, ChevronRight } from '@lucide/vue';
 import { itemsForSale } from '../data/itemsForSale';
 
 const itemIndices = ref({});
+
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+
+const onTouchStart = (e) => {
+  touchStartX.value = e.changedTouches[0].screenX;
+};
+
+const onTouchEnd = (e, item) => {
+  touchEndX.value = e.changedTouches[0].screenX;
+  const swipeThreshold = 50;
+  if (touchEndX.value < touchStartX.value - swipeThreshold) {
+    nextImage(item);
+  }
+  if (touchEndX.value > touchStartX.value + swipeThreshold) {
+    prevImage(item);
+  }
+};
 
 const getCurrentIndex = (id) => {
   return itemIndices.value[id] || 0;

@@ -11,7 +11,11 @@
       <div v-if="featuredItem" class="flex flex-col lg:flex-row items-center gap-16 mt-12">
         <div class="lg:w-1/2 relative group w-full">
           <div class="relative z-10 p-3 bg-white shadow-xl border border-gray-100 transition-all duration-700">
-            <div class="overflow-hidden bg-gray-50 aspect-[4/4] relative">
+            <div 
+              class="overflow-hidden bg-gray-50 aspect-[4/4] relative"
+              @touchstart="onTouchStart"
+              @touchend="onTouchEnd"
+            >
               <transition name="fade" mode="out-in">
                 <img 
                   :key="currentImageIndex"
@@ -22,17 +26,17 @@
               </transition>
 
               <!-- Carousel Navigation -->
-              <div v-if="featuredItem.images.length > 1" class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div v-if="featuredItem.images.length > 1" class="absolute inset-0 flex items-center justify-between px-4 xl:opacity-0 xl:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 <button 
                   @click="prevImage" 
-                  class="p-2 bg-white/80 hover:bg-white text-primary rounded-full shadow-md transition-all active:scale-90"
+                  class="p-2 bg-white/80 hover:bg-white text-primary rounded-full shadow-md transition-all active:scale-90 pointer-events-auto"
                   aria-label="Vorheriges Bild"
                 >
                   <ChevronLeft class="w-6 h-6" />
                 </button>
                 <button 
                   @click="nextImage" 
-                  class="p-2 bg-white/80 hover:bg-white text-primary rounded-full shadow-md transition-all active:scale-90"
+                  class="p-2 bg-white/80 hover:bg-white text-primary rounded-full shadow-md transition-all active:scale-90 pointer-events-auto"
                   aria-label="Nächstes Bild"
                 >
                   <ChevronRight class="w-6 h-6" />
@@ -92,6 +96,28 @@ import { itemsForSale } from '../data/itemsForSale';
 const currentImageIndex = ref(0);
 const featuredItem = computed(() => itemsForSale[0]);
 const hasMore = computed(() => itemsForSale.length > 1);
+
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+
+const onTouchStart = (e) => {
+  touchStartX.value = e.changedTouches[0].screenX;
+};
+
+const onTouchEnd = (e) => {
+  touchEndX.value = e.changedTouches[0].screenX;
+  handleSwipe();
+};
+
+const handleSwipe = () => {
+  const swipeThreshold = 50;
+  if (touchEndX.value < touchStartX.value - swipeThreshold) {
+    nextImage();
+  }
+  if (touchEndX.value > touchStartX.value + swipeThreshold) {
+    prevImage();
+  }
+};
 
 const nextImage = () => {
   if (!featuredItem.value) return;
