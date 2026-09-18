@@ -10,22 +10,32 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { title: 'Schneiderei & Design - Gabriele Burgstaller | Villach' }
     },
     {
       path: '/zu-verkaufen',
       name: 'forsale',
-      component: ForSaleView
+      component: ForSaleView,
+      meta: { title: 'Sofort verfügbar - Einzelstücke | Gabriele Burgstaller' }
     },
     {
       path: '/impressum',
       name: 'impressum',
-      component: ImpressumView
+      component: ImpressumView,
+      meta: { 
+        title: 'Impressum | Gabriele Burgstaller',
+        robots: 'noindex, nofollow'
+      }
     },
     {
       path: '/datenschutz',
       name: 'datenschutz',
-      component: PrivacyPolicyView
+      component: PrivacyPolicyView,
+      meta: { 
+        title: 'Datenschutz | Gabriele Burgstaller',
+        robots: 'noindex, nofollow'
+      }
     }
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -37,6 +47,28 @@ const router = createRouter({
     }
     return { top: 0 }
   }
+})
+
+router.beforeEach((to, from, next) => {
+  // Update Title
+  const title = to.meta.title
+  if (title) {
+    document.title = title
+  }
+
+  // Update Robots Meta Tag
+  const robots = to.meta.robots || 'index, follow'
+  let robotsTag = document.querySelector('meta[name="robots"]')
+  if (robotsTag) {
+    robotsTag.setAttribute('content', robots)
+  } else {
+    robotsTag = document.createElement('meta')
+    robotsTag.setAttribute('name', 'robots')
+    robotsTag.setAttribute('content', robots)
+    document.head.appendChild(robotsTag)
+  }
+
+  next()
 })
 
 export default router
